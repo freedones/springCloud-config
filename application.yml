@@ -13,3 +13,34 @@ spring:
   profiles: test                  #测试环境
   application:
     name: springCloud-config-test
+    
+
+---
+server: 
+  port: 8087
+
+spring:
+  profiles: dev
+  application:
+    name: springCloud-provider-config-clent
+
+eureka:
+  client:
+    register-with-eureka: false
+    service-url: 
+      defaultZone:  http://localhost:8081/eureka,http://localhost:8082/eureka
+
+---
+server: 
+  port: 8088
+
+spring:
+  profiles: test
+  application:
+    name: springCloud-provider-config-clent
+
+eureka:
+  client:
+    register-with-eureka: false
+    service-url: 
+      defaultZone:  http://localhost:8081/eureka,http://localhost:8082/eureka
